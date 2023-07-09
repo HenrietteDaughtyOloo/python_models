@@ -1,4 +1,5 @@
 from django.db import models
+from inventory.models import Product
 
 
 # Create your models here.
@@ -8,6 +9,7 @@ class MyCart(models.Model):
     product_price = models.IntegerField()
     product_avatar = models.ImageField()
     date_added = models.DateTimeField()
+    products = models.ManyToManyField(Product)
 
 class Meta:
-    verbose_name_plural = "my_cart"
+    verbose_name_plural = "MyCart"

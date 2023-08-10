@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body{
+    /* background-color: grey; */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    padding: 30px;
+    margin: 0;
+}
+
+.img{
+
+    width: 50%;
+    height: auto; /* I have added this line so that the ratio  gets maintained across all images*/
+    max-height: 1000px; /* I set the fixed maximum height for the images */
+
+}
+.allproducts{
+    display: grid;
+    justify-content:space-between;
+
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Creates a responsive grid layout */
+    gap: 20px; 
+}
+.header{
+    text-align: center;
+    border: 1px solid azure;
+    background-color: green;
+    font-size: 50px;
+    margin-bottom: 0%;
+    padding: 10px;
+    color: white;
+}
+.product-container{
+    border: solid gray 3px;
+    padding: 15px;
+    background-color: white;
+    box-shadow: 0 3px 10px 0 #aaa;
+
+
+}
+.product-container img {
+    width: 100%;
+    height: auto;
+    max-height: 250px; 
+    object-fit: cover; 
+    border: 1px solid #ccc; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+.product-container img:hover{
+    transform:scale(1.1);
+}
+a{
+    color: green;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+
+
+    </style>
+    <link rel="stylesheet" href="products_list.css">
+</head>
+<body>
+    <h1 class="header">Mama Greens Product List</h1>
+
+    <h1 class="product"> Available Products</h1>
+<div class="allproducts">
+    {% for product in products %}
+        <div class="product-container">
+            <img src="{{product.image.url}}" class="img"/>
+            <h1 class="product-name">{{ product.name }}</h1>
+            <a href= "{%  url 'product_detail_view' id=product.id %}">View product</a>
+            <br>
+            <a href="{% url 'product_update_view' id=product.id %}"> Edit Product</a>
+            <br>
+
+        </div>
+    {% endfor %}
+</div>
+</body>
+</html>

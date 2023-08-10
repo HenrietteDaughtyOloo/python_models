@@ -5,9 +5,7 @@ from customer.models import Customer
 from delivery.models import Delivery
 
 # Create your models here.
-class Orders(models.Model):
-
-    
+class Orders(models.Model):    
     order_status = models.CharField(max_length=50)
     order_date = models.DateTimeField(auto_now_add=True)
     order_total = models.DecimalField(max_digits=8,decimal_places=2)

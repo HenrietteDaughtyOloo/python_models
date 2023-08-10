@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+background-color: #f2f2f2;
+margin: 0;
+padding: 20px;
+}
+
+h2 {
+color: #008000;
+margin-bottom: 10px;
+}
+
+img {
+max-width: 40%;
+border-radius: 30px;
+height: auto;
+margin-left: 25%;
+margin-bottom: 10px;
+}
+
+p {
+color: #181515;
+font-weight: bold;
+margin-bottom: 20px;
+text-align: center;
+font-size: 30px;
+}
+span {
+            display: block;
+            text-align: center;
+            font-size: 24px;
+            color: #008000;
+            margin-bottom: 20px;
+        }
+
+        button {
+            display: block;
+            margin: 0 auto;
+            padding: 10px 20px;
+            background-color: #008000;
+            color: #fff;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #006400;
+        }
+        .detail{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+        .bottomDetail{
+            margin-right: 10%;
+            width: 100%;
+
+        }
+
+
+</style>
+
+
+</head>
+<body>
+
+    <div class="detail">
+    <div class="topDetail">
+    <h2>{{product.title}}</h2>
+    <img src="{{product.image.url}}" alt="">
+</div>
+   <div class="bottomDetail">
+    <p>{{product.description}}</p>
+    <span>{{product.price}}</span>
+    <button>Add to Cart</button>
+</div>
+</div>
+
+</body>
+</html>

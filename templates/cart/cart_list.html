@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Shopping Cart</h1>
+    <ul >
+        {% for item in cart_items %}
+        <li>
+            {{ item.name }} - Quantity: {{ item.quantity }} - Price: ${{ item.price }}
+            <a href="{% url 'edit_cart_item' cart_item_id=item.pk %}">Edit</a> <br>
+            <a href="{% url 'add_to_cart' cart_item_id=item.pk % }">Add to cart</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

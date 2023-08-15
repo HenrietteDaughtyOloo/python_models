@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <body>
+        <h1>Are you sure you want to delete this customer?</h1>
+        <p>Customer First Name: {{ customer.first_name }}</p>
+        <p>Customer Last Name: {{ customer.last_name }}</p>
+        <p>Customer email: {{ customer.email }}</p>
+        <p>Customer phone Number: {{ customer.phonenumber }}</p>
+        <p>Customer password: {{ customer.password }}</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+        </form>
+    </body>
+</body>
+</html>

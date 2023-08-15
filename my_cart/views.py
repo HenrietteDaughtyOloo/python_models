@@ -19,20 +19,21 @@ def add_to_cart(request):
             return redirect('cart_list')
     else:
         form = ProductCartForm()
-    return render(request, 'add_to_cart.html', {'form': form})
-def edit_cart_item(request, cart_item_id):
-    cart_item = get_object_or_404(MyCart, pk=cart_item_id)
+    return render(request, 'cart/add_to_cart.html', {'form': form})
+def edit_cart_item(request, id):
+    cartlist= MyCart.objects.get(id=id)
+    
     if request.method == 'POST':
-        form = ProductCartForm(request.POST, instance=cart_item)
+        form = ProductCartForm(request.POST, instance=cartlist)
         if form.is_valid():
             form.save()
             return redirect('cart_list')
     else:
-        form = ProductCartForm(instance=cart_item)
-    return render(request, 'edit_cart_item.html', {'form': form, 'cart_item': cart_item})
+        form = ProductCartForm(instance=cartlist)
+    return render(request, 'cart/edit_cart_item.html', {'form': form, 'cart_item': cartlist})
 def cart_list(request):
     cart_items = MyCart.objects.all()
-    return render(request, 'cart_list.html', {'cart_items': cart_items})
+    return render(request, 'cart/cart_list.html', {'cart_items': cart_items})
 
 
 

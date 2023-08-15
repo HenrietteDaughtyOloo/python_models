@@ -4,17 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+        .image{
+            width: 30%;
+
+        }
+        ul{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            
+        }
+        ul
+         li{
+            border: solid rgb(227, 213, 239);
+            padding: 10px;
+            margin:5px;
+            box-shadow: 0 2px 4px ;
+         }
+        
+    </style>
+
 </head>
 <body>
     <h1>Shopping Cart</h1>
     <ul >
-        {% for item in cart_items %}
+        {% for cart_item in cart_items %}
         <li>
-            {{ item.name }} - Quantity: {{ item.quantity }} - Price: ${{ item.price }}
-            <a href="{% url 'edit_cart_item' cart_item_id=item.pk %}">Edit</a> <br>
-            <a href="{% url 'add_to_cart' cart_item_id=item.pk % }">Add to cart</a>
-        </li>
-        {% endfor %}
-    </ul>
-</body>
+            {% if cart_item.image %}
+            <img class="image" src="{{cart_item.image.url}}" alt="Image"/> <br>
+            {% else %}
+            No Image Available
+        {% endif %}
+              Name: {{ cart_item.name }} <br>
+              Quantity: {{ cart_item.quantity_of_items}}  <br>
+              Price: ${{ cart_item.price }} <br>
+              <a href="{% url 'edit_cart_item' id=cart_item.id %}">Edit</a> <br>
+            </li>
+            {% endfor %}
+        </ul>
+    </body>
 </html>

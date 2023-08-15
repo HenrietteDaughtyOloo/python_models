@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .allproducts{
+            display: grid;
+            grid-template-columns: repeat(1 ,1fr);
+        
+        }
+        .product-container{
+            padding: 20px;
+            margin: 8px;
+            display: grid;
+            /* grid-template-columns: repeat(2, 1fr); */
+            gap: 2%;
+            border: none;
+}
+
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
+button{
+    background-color: rgb(250, 250, 250);
+    color: black;
+    padding: 10px 20px;
+    font-size: 18px;
+    width: 200px;
+    height: 200px;
+    border: none;
+    cursor: cell;
+    border-radius: 20px;
+    height: 30px;
+    font-size: large;
+    transition: background-color 0.3s ease;
+
+}
+
+        
+    </style>
+    <h1>Customer List</h1>
+    <div class="allproducts">
+        {% for customer in customers %}
+            <div class="product-container">
+                
+                <table id="customers">
+                    <tr>
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Phone Number</th>
+                      <th>Email</th>
+                      <th>Action</th>
+                    </tr>
+                    <tr>
+                      <td class="product-name">{{ customer.first_name }}</td>
+                      <td class="product-name">{{ customer.last_name }}</td>
+                      <td  class="product-name">{{ customer.phonenumber }} </td>
+                      <td  class="product-name">{{ customer.email }} </td>
+                      <td><a href="{% url 'customer_update' id=customer.id %}"> <button class="btn">Edit Customer</button></a>
+                      </td>
+
+                    </tr>
+                </table>
+                <div class="view">                      
+                   </div>
+          
+
+                     </div>
+        {% endfor %}
+    </div> 
+    
+</body>
+</html>
+

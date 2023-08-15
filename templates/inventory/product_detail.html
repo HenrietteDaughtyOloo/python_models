@@ -54,17 +54,23 @@ span {
         }
 
         button:hover {
-            background-color: #006400;
+            background-color: #f8da63;
         }
         .detail{
             display: flex;
             flex-direction: row;
             justify-content: space-between;
+            margin-top: 15%;
         }
         .bottomDetail{
             margin-right: 10%;
             width: 100%;
 
+        }
+        a{
+            text-decoration: none;
+
+            color: black;
         }
 
 
@@ -82,7 +88,7 @@ span {
    <div class="bottomDetail">
     <p>{{product.description}}</p>
     <span>{{product.price}}</span>
-    <button>Add to Cart</button>
+    <button><a href="{% url 'cart_list' %}" class="cart_list">Add To Cart</a></button>
 </div>
 </div>
 

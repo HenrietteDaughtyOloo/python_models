@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="product_upload.css">
+
+    <style>
+
+h2{
+    text-align: center;
+    font-size: 24px;
+    /* background-color: gray; */
+    border: solid rgb(32, 83, 11) 20px;
+    padding: 10px;
+    margin-bottom: 20px;
+    
+}
+form{
+    text-align: center;
+    font-size: 25px;
+    max-width: 500px;
+    margin: 0 auto;
+    background-color: #c2dbb4;
+    padding: 10px;
+    border-radius: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+
+}
+
+body{
+    background-color: #f0f0f0;
+
+}
+.btnSave{
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    font-size: 18px;
+    width: 150px;
+    height: 200px;
+    border: none;
+    cursor: cell;
+    border-radius: 20px;
+    height: 30px;
+    transition: background-color 0.3s ease;
+
+}
+form input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+    </style>
+</head>
+<body>
+    <form method="POST" class="upload_form">
+        {% csrf_token%}
+        {{form.as_p}}
+        <button type="submit" >Save</button>
+    </form>
+</body>
+</html>

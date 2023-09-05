@@ -10,8 +10,8 @@ urlpatterns = [
      name = "vendors_upload_view"),
     path("vendors/list/", vendor_list_view, 
     name="vendors_list_view"),
-    path("vendors/<int:id>/", vendor_detail_view, name="product_detail_view"),
-    path("vendors/edit/<int:id>/", vendor_update_view, name="product_update_view"),
+    path("vendors/<int:id>/", vendor_detail_view, name="vendor_detail_view"),
+    path("vendors/edit/<int:id>/", vendor_update_view, name="vendor_update_view"),
     path("vendors/edit/<int:id>/",delete_vendor,
     name="vendor_update_view"),
 ]

@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'vendor',
     'my_cart',
     'rating',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

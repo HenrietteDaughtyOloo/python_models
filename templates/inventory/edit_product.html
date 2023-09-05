@@ -63,7 +63,7 @@ form input[type="text"] {
 
 <body>
     <h2>Edit Product Details </h2>
-    <form method=""POST>{%csrf_token%}
+    <form method="POST">{%csrf_token%}
         {{form.as_p}}
         <button class="btnSave" type="submit">Save</button>
     </form>

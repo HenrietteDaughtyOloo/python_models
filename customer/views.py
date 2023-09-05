@@ -38,3 +38,4 @@ def delete_customer(request, id):
         return redirect("customer_list_view")
     return render(request, 'customer/confirmation_page.html', {'customer': customer})
 
+

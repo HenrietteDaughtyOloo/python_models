@@ -80,8 +80,7 @@ a{
 <div class="allproducts">
     {% for vendor in vendors %}
         <div class="vendor-container">
-            <img src="{{vendor.image.url}}" class="img"/>
-            <h1 class="vendor-name">{{ vendor.name }}</h1>
+           <h1 class="vendor-name">{{ vendor.name }}</h1>
             <a href= "{%  url 'vendor_detail_view' id=vendor.id %}">View Vendor</a>
             <br>
             <a href="{% url 'vendor_update_view' id=vendor.id %}"> Edit Vendor</a>
